@@ -1,0 +1,43 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
+import AboutUs from "./pages/AboutUs";
+import ContactUs from "./pages/ContactUsSimple";
+import Home from "./pages/Home";
+import SubmittedForm from "./pages/SubmittedForm";
+
+function App() {
+  return (
+    <React.Fragment>
+      {/* The Route, Routes and Link components only work in Router   */}
+      <Router>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/about">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact">
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/form-submitted" element={<SubmittedForm />} />
+        </Routes>
+      </Router>
+    </React.Fragment>
+  );
+}
+
+export default App;
